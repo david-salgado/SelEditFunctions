@@ -1,0 +1,24 @@
+Package: SelEditFunctions
+Type: Package
+Title: Functions for selective editing
+Version: 0.0.1
+Authors@R: c(
+    person("David", "Salgado", email = "david.salgado.fernandez@gmail.com", role = c("cre", "aut")),
+    person("Elisa", "Esteban", email = "elisa.esteban.segurado@gmail.com", role = "aut"),
+    person("Soledad", "Saldaña", email = "soledad.saldana.diaz@gmail.com", role = "aut"))
+Maintainer: David Salgado <david.salgado.fernandez@gmail.com>
+Description: Definition of functions to compute conditional error moments in
+    selective editing
+Depends:
+    R (>= 3.3.0)
+Imports:
+    methods (>= 3.3.0),
+    fAsianOptions (>= 3010.79)
+License: file LICENSE
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 5.0.1
+Collate:
+    'KummerM.R'
+    'Zeta.R'
+    'AbsLossErrorMoment.R'
