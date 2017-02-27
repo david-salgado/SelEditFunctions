@@ -24,16 +24,7 @@ Numeric vector with the value of the zeta function for each statistical unit.
 \code{zeta} computes the function \eqn{\zeta}
 }
 \examples{
-\dontrun{
 
-AbsLossPar <- new(Class = 'AbsLossErrorMomentParam',
-                  VarNames =  c("CifraNeg_13.___", "Personal_07.__2.__"),
-                  Homoskedastic = c(FALSE, FALSE),
-                  UnitWeightNames = character(0))
-
-ComputeErrorMoments(ObsPredPar, AbsLossPar)
+Zeta(0.5, 130, 400, -20.3)
 
 }
-
-}
-

@@ -30,16 +30,7 @@ Numeric vector with the values moments for each statistical unit.
 \code{AbsLossErrorMoment} computes the conditional error moments
 }
 \examples{
-\dontrun{
 
-AbsLossPar <- new(Class = 'AbsLossErrorMomentParam',
-                  VarNames =  c("CifraNeg_13.___", "Personal_07.__2.__"),
-                  Homoskedastic = c(FALSE, FALSE),
-                  UnitWeightNames = character(0))
-
-ComputeErrorMoments(ObsPredPar, AbsLossPar)
+AbsLossErrorMoment(10000, 12000, 2500, 5000, 1.9, 0.75)
 
 }
-
-}
-

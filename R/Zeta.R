@@ -14,16 +14,8 @@
 #'
 #'
 #' @examples
-#' \dontrun{
 #'
-#' AbsLossPar <- new(Class = 'AbsLossErrorMomentParam',
-#'                   VarNames =  c("CifraNeg_13.___", "Personal_07.__2.__"),
-#'                   Homoskedastic = c(FALSE, FALSE),
-#'                   UnitWeightNames = character(0))
-#'
-#' ComputeErrorMoments(ObsPredPar, AbsLossPar)
-#'
-#' }
+#' Zeta(0.5, 130, 400, -20.3)
 #'
 #' @export
 Zeta <- function(p, nu, sigma, u){
@@ -33,9 +25,10 @@ Zeta <- function(p, nu, sigma, u){
     if (length(unique(Lengths)) != 1) stop('[SelEditFunctions: Zeta] All arguments must have the same length.\n')
 
     output <- 1/(1 + (1 - p)/p * sqrt((sigma^2 + nu^2) / nu^2) * exp(-(sigma^2 * u^2) / (sigma^2 + nu^2)))
-    output[abs(sigma) <= .Machine$double.eps] <- p[abs(sigma) <= .Machine$double.eps]
-    output[abs(p) <= .Machine$double.eps] <- 1
-    output[abs(nu) <= .Machine$double.eps] <- 1
+
+    output[sigma <= .Machine$double.eps] <- p[sigma <= .Machine$double.eps]
+    output[p <= .Machine$double.eps] <- 1
+    output[nu <= .Machine$double.eps] <- 1
     return(output)
 
 }

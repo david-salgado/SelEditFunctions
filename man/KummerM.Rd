@@ -22,4 +22,3 @@ KummerM(-23.2)
 KummerM(-1200)
 
 }
-

@@ -21,16 +21,8 @@
 #'
 #'
 #' @examples
-#' \dontrun{
 #'
-#' AbsLossPar <- new(Class = 'AbsLossErrorMomentParam',
-#'                   VarNames =  c("CifraNeg_13.___", "Personal_07.__2.__"),
-#'                   Homoskedastic = c(FALSE, FALSE),
-#'                   UnitWeightNames = character(0))
-#'
-#' ComputeErrorMoments(ObsPredPar, AbsLossPar)
-#'
-#' }
+#' AbsLossErrorMoment(10000, 12000, 2500, 5000, 1.9, 0.75)
 #'
 #' @include Zeta.R KummerM.R
 #'
@@ -38,6 +30,7 @@
 AbsLossErrorMoment <- function(Var, Pred, nu, sigma, w, p, Homoskedastic = TRUE){
 
     u.Zeta <- (Var - Pred) / nu
+
     zetaValues <- Zeta(p, nu, sigma, u.Zeta)
 
     u2.Kummer <- if (Homoskedastic) {
