@@ -29,6 +29,7 @@ Zeta <- function(p, nu, sigma, u){
     output[sigma <= .Machine$double.eps] <- p[sigma <= .Machine$double.eps]
     output[p <= .Machine$double.eps] <- 1
     output[nu <= .Machine$double.eps] <- 1
+    output[is.infinite(sigma)] <- 0
     return(output)
 
 }
