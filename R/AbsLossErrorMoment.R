@@ -29,9 +29,16 @@
 #' @export
 AbsLossErrorMoment <- function(Var, Pred, nu, sigma, w, p, Homoskedastic = TRUE){
 
-    u.Zeta <- (Var - Pred) / nu
+    u.Zeta <- if (Homoskedastic) {
 
+      (Var - Pred) / nu
+
+    } else {
+
+      w * (Var - Pred) / nu
+    }
     zetaValues <- Zeta(p, nu, sigma, u.Zeta)
+
 
     u2.Kummer <- if (Homoskedastic) {
 
@@ -41,6 +48,7 @@ AbsLossErrorMoment <- function(Var, Pred, nu, sigma, w, p, Homoskedastic = TRUE)
 
         -(w^2 * (Var - Pred)^2 / (2 * nu^2))
     }
+
     output <- if (Homoskedastic) {
 
         w *  sqrt(2 / pi) * nu * KummerM(u2.Kummer) * zetaValues
