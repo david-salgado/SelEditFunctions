@@ -3,6 +3,7 @@
 export(AbsLossErrorMoment)
 export(Angle)
 export(KummerM)
+export(Log)
 export(Logit)
 export(MinkUnitSc)
 export(Zeta)
