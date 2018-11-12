@@ -1,7 +1,7 @@
 Package: SelEditFunctions
 Type: Package
 Title: Functions for selective editing
-Version: 0.2.1
+Version: 0.2.3
 Authors@R: c(
     person("David", "Salgado", email = "david.salgado.fernandez@gmail.com", role = c("cre", "aut")),
     person("Elisa", "Esteban", email = "elisa.esteban.segurado@gmail.com", role = "aut"),

@@ -4,10 +4,10 @@
 \alias{AbsLossErrorMoment}
 \title{\code{AbsLossErrorMoment} computes the conditional error moments}
 \usage{
-AbsLossErrorMoment(Var, Pred, nu, sigma, w, p, Homoskedastic = TRUE)
+AbsLossErrorMoment(Raw, Pred, nu, sigma, w, p, Homoskedastic = TRUE)
 }
 \arguments{
-\item{Var}{Numeric vector with the raw values of the object variable.}
+\item{Raw}{Numeric vector with the raw values of the object variable.}
 
 \item{Pred}{Numeric vector with the predicted values for the object variable}
 

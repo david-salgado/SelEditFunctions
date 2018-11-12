@@ -1,7 +1,7 @@
 #' \code{AbsLossErrorMoment} computes the conditional error moments
 #'
 #'
-#' @param Var Numeric vector with the raw values of the object variable.
+#' @param Raw Numeric vector with the raw values of the object variable.
 #'
 #' @param Pred Numeric vector with the predicted values for the object variable
 #'
@@ -27,28 +27,28 @@
 #' @include Zeta.R KummerM.R
 #'
 #' @export
-AbsLossErrorMoment <- function(Var, Pred, nu, sigma, w, p, Homoskedastic = TRUE){
-    
-    output <- numeric(length(Var))
-    
+AbsLossErrorMoment <- function(Raw, Pred, nu, sigma, w, p, Homoskedastic = TRUE){
+
+    output <- numeric(length(Raw))
+
     u.Zeta <- if (Homoskedastic) {
 
-      (Var - Pred) / nu
+      (Raw - Pred) / nu
 
     } else {
 
-      w * (Var - Pred) / nu
+      w * (Raw - Pred) / nu
     }
     zetaValues <- Zeta(p, nu, sigma, u.Zeta)
 
 
     u2.Kummer <- if (Homoskedastic) {
 
-        -(Var - Pred)^2 / (2 * nu^2)
+        -(sigma^2 / (sigma^2 + nu^2))^2 * (Raw - Pred)^2 / (2 * nu^2)
 
     } else {
 
-        -(w^2 * (Var - Pred)^2 / (2 * nu^2))
+        -(w^2 * (sigma^2 / (sigma^2 + nu^2))^2 * (Raw - Pred)^2 / (2 * nu^2))
     }
 
     aux <- if (Homoskedastic) {
@@ -60,8 +60,8 @@ AbsLossErrorMoment <- function(Var, Pred, nu, sigma, w, p, Homoskedastic = TRUE)
         sqrt(2 / pi) * nu * KummerM(u2.Kummer) * zetaValues
 
     }
-    
-    output[nu > .Machine$double.xmin] <- aux[nu > .Machine$double.xmin] 
-    
+
+    output[nu > .Machine$double.xmin & !is.na(nu)] <- aux[nu > .Machine$double.xmin & !is.na(nu)]
+
     return(output)
 }
