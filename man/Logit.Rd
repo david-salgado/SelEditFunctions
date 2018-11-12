@@ -23,6 +23,6 @@ parámetro de entrada \code{p}. El parámetro de entrada \code{adjust} reduce en
 longitud del dominio [0,1] para evitar las singularidades en 0 y en 1.
 }
 \examples{
-Logit(c(0.1, 0.3, 0.5, 0, -0.1, 0.1))
+Logit(c(0.1, 0.3, 0.5, 0, 0.1, 0.1))
 
 }
