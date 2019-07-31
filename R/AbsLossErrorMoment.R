@@ -1,18 +1,19 @@
 #' \code{AbsLossErrorMoment} computes the conditional error moments
 #'
 #'
-#' @param Raw Numeric vector with the raw values of the object variable.
+#' @param Raw Numeric vector with the raw values of the object variable for each statistical unit.
 #'
-#' @param Pred Numeric vector with the predicted values for the object variable
-#'
-#' @param nu Numeric vector with the prediction error standard deviation of each statistical unit.
-#'
-#' @param sigma Numeric vector with the observation error standard deviation of each statistical
+#' @param Pred Numeric vector with the predicted values for the object variable for each statistical
 #' unit.
 #'
-#' @param w Numeric vector with the design weights.
+#' @param nu Numeric vector with the prediction error standard deviation for each statistical unit.
 #'
-#' @param p Numeric vector with the probabilities of measurement error of each statistical unit.
+#' @param sigma Numeric vector with the observation error standard deviation for each statistical
+#' unit.
+#'
+#' @param w Numeric vector with the design weights for each statistical unit.
+#'
+#' @param p Numeric vector with the probabilities of measurement error for each statistical unit.
 #'
 #' @param Homoskedastic \code{TRUE} (default) or \code{FALSE} indicating whether to use a
 #' homoskedastic or heteroskedastic model.

@@ -15,7 +15,7 @@ Zeta(p, nu, sigma, u)
 unit.}
 
 \item{u}{Numeric vector with the predicted measurement error (observed value minus predicted
-value) for each statistical unit.}
+value and the result, divided by nu) for each statistical unit.}
 }
 \value{
 Numeric vector with the value of the zeta function for each statistical unit.

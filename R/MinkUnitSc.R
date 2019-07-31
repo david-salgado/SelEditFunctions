@@ -6,7 +6,7 @@
 #'
 #' @param Weights Numeric vector with the weights of each item score.
 #'
-#' @return Numeric vector with the value of the zeta function for each statistical unit.
+#' @return Numeric vector with the value of the Minkowskian function for each statistical unit.
 #'
 #'
 #' @examples

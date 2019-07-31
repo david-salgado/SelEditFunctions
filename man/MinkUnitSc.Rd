@@ -14,7 +14,7 @@ MinkUnitSc(x, alpha = 1L, Weights = 1L)
 \item{Weights}{Numeric vector with the weights of each item score.}
 }
 \value{
-Numeric vector with the value of the zeta function for each statistical unit.
+Numeric vector with the value of the Minkowskian function for each statistical unit.
 }
 \description{
 \code{MinkUnitSc} computes the unit scores according to a Minkowskian function
