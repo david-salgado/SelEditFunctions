@@ -13,25 +13,47 @@
 #' Angle(c(1, 3, 5), c(0, -1, 1))
 #' 
 #' @export
+# Angle <- function(vector1, vector2){
+#     
+#     if (length(vector1) != length(vector2)) stop("[Angle vector] vector1 y vector2 deben tener la misma longitud.")
+#     
+#     vector1 <- as.numeric(vector1)
+#     vector2 <- as.numeric(vector2)
+#     
+#     if (all(is.na(vector1)) & all(is.na(vector2))) return(NA_real_)
+#       
+#     den1 <- sum(vector1 * vector1, na.rm = T)
+#     den2 <- sum(vector2 * vector2, na.rm = T)
+#     num <- sum(vector1 * vector2, na.rm = T)^2
+#     
+#     OnlyANullFactor <- ( abs(den1 * den2) <= .Machine$double.eps & ( abs(den1) > .Machine$double.eps | abs(den2) > .Machine$double.eps ) )
+#     if (OnlyANullFactor) return(NA_real_)
+#     
+#     NoNull <- (abs(den1 * den2) > .Machine$double.eps) 
+#     if (!NoNull) return(1)
+#     aux <- num / (den1 * den2)
+#     
+#     return(aux)
+# }
+
 Angle <- function(vector1, vector2){
-    
-    if (length(vector1) != length(vector2)) stop("[Angle vector] vector1 y vector2 deben tener la misma longitud.")
-    
-    vector1 <- as.numeric(vector1)
-    vector2 <- as.numeric(vector2)
-    
-    if (all(is.na(vector1)) & all(is.na(vector2))) return(NA_real_)
-      
-    den1 <- sum(vector1 * vector1, na.rm = T)
-    den2 <- sum(vector2 * vector2, na.rm = T)
-    num <- sum(vector1 * vector2, na.rm = T)^2
-    
-    OnlyANullFactor <- ( abs(den1 * den2) <= .Machine$double.eps & ( abs(den1) > .Machine$double.eps | abs(den2) > .Machine$double.eps ) )
-    if (OnlyANullFactor) return(NA_real_)
-    
-    NoNull <- (abs(den1 * den2) > .Machine$double.eps) 
-    if (!NoNull) return(1)
-    aux <- num / (den1 * den2)
-    
-    return(aux)
+  
+  if (length(vector1) != length(vector2)) stop("[Angle vector] vector1 y vector2 deben tener la misma longitud.")
+  output <- 1
+  
+  vector1 <- as.numeric(vector1)
+  vector2 <- as.numeric(vector2)
+  
+  den1 <- sum(vector1 * vector1, na.rm = T)
+  den2 <- sum(vector2 * vector2, na.rm = T)
+  num <- sum(vector1 * vector2, na.rm = T)^2
+  
+  OnlyANullFactor <- ( abs(den1 * den2) <= .Machine$double.eps & ( abs(den1) > .Machine$double.eps | abs(den2) > .Machine$double.eps ) )
+  if (OnlyANullFactor) return(1)
+  
+  NoNull <- (abs(den1 * den2) > .Machine$double.eps) 
+  if (!NoNull) return(1)
+  aux <- round(num / (den1 * den2), 6)  #####
+  
+  return(aux)
 }
